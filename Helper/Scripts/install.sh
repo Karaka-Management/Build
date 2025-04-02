@@ -16,7 +16,7 @@ add-apt-repository ppa:ondrej/php
 
 apt-get update
 
-apt-get install php8.1 php8.1-dev php8.1-cli php8.1-common php8.1-mysql php8.1-pgsql php8.1-xdebug php8.1-opcache php8.1-pdo php8.1-sqlite php8.1-mbstring php8.1-curl php8.1-imap php8.1-bcmath php8.1-zip php8.1-dom php8.1-xml php8.1-phar php8.1-gd php-pear apache2 mariadb-server mariadb-client wkhtmltopdf tesseract-ocr poppler-utils
+apt-get install php8.3 php8.3-dev php8.3-cli php8.3-common php8.3-mysql php8.3-pgsql php8.3-xdebug php8.3-opcache php8.3-pdo php8.3-sqlite php8.3-mbstring php8.3-curl php8.3-imap php8.3-bcmath php8.3-zip php8.3-dom php8.3-xml php8.3-phar php8.3-gd php-pear apache2 mariadb-server mariadb-client wkhtmltopdf tesseract-ocr poppler-utils
 
 apt-get install curl libcurl4-openssl-dev libxml2 libxml2-dev
 
@@ -91,14 +91,14 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 sudo pecl install sqlsrv
 sudo pecl install pdo_sqlsrv
-printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.1/mods-available/sqlsrv.ini
-printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.1/mods-available/pdo_sqlsrv.ini
-phpenmod -v 8.1 sqlsrv pdo_sqlsrv
+printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.3/mods-available/sqlsrv.ini
+printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.3/mods-available/pdo_sqlsrv.ini
+phpenmod -v 8.3 sqlsrv pdo_sqlsrv
 service apache2 restart
 
 pecl install ast
 
-echo "extension=ast.so" | tee /etc/php/8.1/mods-available/ast.ini
+echo "extension=ast.so" | tee /etc/php/8.3/mods-available/ast.ini
 phpenmod ast
 
 # Install redis
@@ -109,14 +109,14 @@ sudo apt install redis-server
 systemctl restart redis
 
 pecl install redis
-echo "extension=redis.so" | tee /etc/php/8.1/mods-available/redis.ini
+echo "extension=redis.so" | tee /etc/php/8.3/mods-available/redis.ini
 phpenmod redis
 
 # Install memcached
-apt-get install memcached libmemcached-dev libmemcached-tools php8.1-memcached
+apt-get install memcached libmemcached-dev libmemcached-tools php8.3-memcached
 systemctl restart memcached
 pecl install memcached
-echo "extension=memcached.so" | tee /etc/php/8.1/mods-available/memcached.ini
+echo "extension=memcached.so" | tee /etc/php/8.3/mods-available/memcached.ini
 phpenmod memcached
 
 # create new user
